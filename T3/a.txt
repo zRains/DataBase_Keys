@@ -1,0 +1,314 @@
+---------------
+若用类型为char(6)的变量存储‘abc’，占有的存储空间为A. 3个字节               B. 6个字节C. 12个字节              D. 不确定
+答案: B
+------------------
+
+---------------
+R和S为两个基本表，“R JOIN S ON R.列1=S.列2”，要使操作有意义，列1和列2必须A. 列名相同B. 数据类型相同C. 语义相同D. 列名和类型均相同
+答案: C
+------------------
+
+---------------
+已知实体A与实体B之间是多对多联系，为描述两个实体之间的关联关系，添加了联系C来关联实体A和B，则C和B之间的联系是A. 一对一                B. 一对多C. 多对多                D. 多对一
+答案: D
+------------------
+
+---------------
+在关系数据库应用系统设计中，将E-R模型转换为关系模型属于下列哪个阶段的工作A. 概念设计              B. 逻辑设计C. 物理设计              D. 需求分析
+答案: B
+------------------
+
+---------------
+下列操作中，系统检查默认值约束的是        A. 插入数据之前        B. 插入数据之后        C. 修改数据之前        D. 修改数据之后
+答案: A
+------------------
+
+---------------
+下述属于SQL数据操作功能的语句是
+   A. CREATE
+   B. DELETE
+   C. DROP
+   D. ALTER
+
+答案: B
+------------------
+
+---------------
+SQL语言中计算列值平均值的聚合函数是     A.SUM    B.COUNT    C.MAX    D.AVG
+答案: D
+------------------
+
+---------------
+一个电视经销商在表TVType中维护其库存的电视机（TVs）的详细信息。下列能够正确显示价格最贵的前三种电视机信息的语句是A、SELECT TOP 3 cDescription  FROM TVType ORDER BY iPrice ascB、SELECT TOP 3 cDescription FROM TVType ORDER BY iPrice descC、SELECT cDescription FROM TVType where max(iPrice) > 3D、SELECT cDescription, max(iPrice) FROM TVType ORDER BY iPrice
+答案: B
+------------------
+
+---------------
+下列聚合函数中，不忽略空值的是        A. SUM(列名)        B. MAX(列名)        C. AVG(列名)        D. COUNT(*)
+答案: D
+------------------
+
+---------------
+现有如下两张表：部门表（部门号，部门描述）雇员表（雇员号，姓名，部门号）,其中“部门号”的取值受部门表的“部门号”的限制当在雇员表中插入一行记录时，应限制新插入的部门号为已有的部门号。下列方法中可行的是        A. 定义雇员表的部门号为引用部门表的部门号的外键        B. 定义部门表的部门号为引用雇员表的部门号的外键        C. 用check约束限制雇员表的部门号的值在部门表的部门号范围内        D. 在雇员表的部门号上定义一个unique约束
+答案: A
+------------------
+
+---------------
+在SELECT语句中，用来限制查询结果集行数的谓词是     A.COUNT    B.SUM    C.TOP    D.BOTTOM
+答案: C
+------------------
+
+---------------
+设要限制“所在系”的取值只能为“计算机系”、“信息系”和“通信系”，正确的约束表达式是        A．CHECK (‘所在系’ IN(‘计算机系’，‘信息系’，‘通信系’))        B．CHECK (‘所在系’ = (‘计算机系’，‘信息系’，‘通信系’))        C．CHECK  (所在系 IN(‘计算机系’，‘信息系’，‘通信系’))        D．CHECK (所在系 =(‘计算机系’，‘信息系’，‘通信系’))
+答案: C
+------------------
+
+---------------
+在SQL语句中，下列不属于数据定义功能的动词为     A. CREATE      B.DROP    C.SELECT      D.ALTER
+答案: C
+------------------
+
+---------------
+设关系数据库中一个表S的结构为S（SN，CN，grade），其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。若要把“张二的化学成绩80分”插入S中，则可用（ ）。
+ A. ADD INTO S VALUES（’张二’，’化学’，’80’）
+ B. INSERT INTO S VALUES（’张二’，’化学’，’80’）
+ C. ADD INTO S VALUES（’张二’，’化学’，80）
+ D. INSERT INTO S VALUES（’张二’，’化学’，80）
+
+答案: D
+------------------
+
+---------------
+下述属于SQL数据定义功能的语句是
+       A. SELECT
+       B. DELETE
+       C. UPDATE
+       D. CREATE
+
+答案: D
+------------------
+
+---------------
+SQL语言允许使用通配符进行字符串匹配的操作，其中‘%’可以表示（    ）
+A、零个字符    B、1个字符    C、多个字符  D、以上都可以
+
+答案: D
+------------------
+
+---------------
+一个电视经销商在表TVType中维护其库存的电视机（TVs）的详细信息。下述哪个语句能显示价格最昂贵的三种电视机的信息？（    ）
+A、SELECT TOP 3 cDescription  FROM TVType ORDER BY iPrice ascB、SELECT TOP 3 cDescription FROM TVType ORDER BY iPrice descC、SELECT cDescription FROM TVType where max(iPrice) > 3D、SELECT cDescription, max(iPrice) FROM TVType ORDER BY iPrice
+ 
+答案: B
+------------------
+
+---------------
+查询电话字段开头字符串为”800”的记录，正确的SQL条件是：where 电话 like
+A.’800%_’               B.’800?’
+C.’800%’                D.’[800]%’
+
+答案: C
+------------------
+
+---------------
+若要删除数据库中已经存在的表S，可用（ ）。
+ A.DELETE TABLE S  
+ B.DELETE S
+ C.DROP TABLE S
+ D.DROP S
+
+答案: C
+------------------
+
+---------------
+有关系S（S＃，SNAME，SAGE），C（C＃，CNAME），SC（S＃，C＃，GRADE）。其中S＃是学生号，SNAME是学生姓名，SAGE是学生年龄， C＃是课程号，CNAME是课程名称。要查询选修“ACCESS”课的年龄不小于20的全体学生姓名的SQL语 
+句是 SELECT SNAME FROM S，C，SC WHERE子句。这里的WHERE子句的内容是（）。
+ A.S.S# = SC.S# and C.C# = SC.C# and SAGE>=20 and CNAME=‘ACCESS’
+ B.S.S# = SC.S# and C.C# = SC.C# and SAGE in>=20 and CNAME in ‘ACCESS’
+ C.SAGE in>=20 and CNAME in ‘ACCESS’
+ D.SAGE>=20 and CNAME=’ ACCESS’
+
+答案: A
+------------------
+
+---------------
+通配符“%”表示（       ）   A、代表一个字符             B、代表零个或多个字符      C、表示在某一范围的字符     D、表示不在某一范围的字符
+答案: B
+------------------
+
+---------------
+在SQL 语句中，限制列的取值范围的语句为     A.UNIQUE    B.CHECK    C.PRIMARY KEY    D.DEFAULT
+答案: B
+------------------
+
+---------------
+下列关于关系数据库的操作特点的说法，正确的是        A. 需要指明操作的要求和操作的实现过程        B. 需要指明操作的要求，但不需要指明操作的实现过程        C. 需要指明操作的实现过程，但不需要指明操作的要求   
+     D. 对操作要求和操作实现过程都不需要指明
+答案: B
+------------------
+
+---------------
+要从student表中查出不姓“张”和“李”的学生信息(学生的姓名对应的字段为sname)，正确的查询语句为：select  *  from  student  where       A.sname not like '[张李]%'    B.sname like '[张李]%'    C.sname not like '张
+李%'    D.sname not like '[张李]'
+答案: A
+------------------
+
+---------------
+数据库（DB），数据库系统（DBS）和数据库管理系统（DBMS）之间的关系是（ ）。
+ A.DBS包括DB和DBMS 
+ B.DBMS包括DB和DBS
+ C.DB包括DBS和DBMS
+ D.DBS就是DB，也就是DBMS
+
+答案: A
+------------------
+
+---------------
+语句“SELECT * FROM Student WHERE sage BETWEEN 20 AND 25”的作用是
+       A. 查询年龄大于20并且小于25的学生
+       B. 查询年龄大于等于20并且小于等于25的学生
+       C. 查询年龄大于20并且小于等于25的学生
+       D. 查询年龄大于等于20并且小于25的学生
+
+答案: B
+------------------
+
+---------------
+查询电话字段包含字符串”020_”的记录，正确的SQL条件是：where 电话 like
+A.’%!020_%’ escape !    B.’%020_%!’ escape !
+C.’%020_?%’ escape ?    D.’%020?_%’ escape ?
+
+答案: D
+------------------
+
+---------------
+下述对出生日期进行比较的表达式中，正确的是        A. 出生日期 >‘1980/1/1’        B. 出生日期 > 1980/1/1        C. 出生日期 > 1980:1:1        D. 出生日期 > ‘1980:1:1’
+答案: A
+------------------
+
+---------------
+下列查询语句中，能够正确执行的是        A. SELECT Sno,Sname FROM SC GROUP BY Sno        B. SELECT Sno FROM SC GROUP BY Sno WHERE COUNT(*) > 3        C. SELECT Sno FROM SC GROUP BY Sno HAVING COUNT(*) > 3        D. SELECT Sno FROM SC ORDER BY Sno HAVING COUNT(*) > 3
+答案: C
+------------------
+
+---------------
+若要将学生张三所在的系从“计算机系”改为“信息系”，正确的语句是A. UPDATE Student SET sdept = '计算机系' WHERE Sname='张三' AND sdept='信息系'B. UPDATE Student SET sdept = '计算机系' WHERE Sname='张三' C. UPDATE Student SET sdept = '信息系' WHERE Sname='张三' AND sdept='计算机系'D. UPDATE Student SET sdept = '信息系' WHERE Sname='张三'
+答案: C
+------------------
+
+---------------
+从一个表中筛选数据向另一个已经存在的表添加所用的命令是（        ）。
+
+A  SELECT …INTO                B  INSERT…SELECT
+C  INSERT … INTO               D  SELECT…INSERT
+
+答案: B
+------------------
+
+---------------
+设关系数据库中一个表S的结构为：S（SN，CN，grade），其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。若要更正王二的化学成绩为85分，则可用（） 。
+ A. UPDATE S SET grade＝85 WHERE SN＝’王二’ AND CN＝’化学’
+ B. UPDATE S SET grade＝’85’ WHERE SN＝’王二’ AND CN＝’化学’
+ C.UPDATE grade＝85 WHERE SN＝’王二’ AND CN＝’化学’
+ D.UPDATE grade＝’85’ WHERE SN＝’王二’ AND CN＝’化学’
+
+答案: A
+------------------
+
+---------------
+要从student表中查出学号（sno）最后一位是0、1和5的学生的信息，正确的查询语句为: select  *  from  student where                 A.sno like '015'    B.sno like '%015'    C.sno like '%[015]'    D.sno like '%[^015]'
+答案: C
+------------------
+
+---------------
+有关系S（S＃，SNAME，SEX），C（C＃，CNAME），SC（S＃，C＃，GRADE）。其中S＃是学生号，SNAME是学生姓名，SEX是性别， C＃是课程号，CNAME是课程名称。要查询选修“数据库”课的全体男生姓名的SQL语句是SELECT SNAME FROM S，C，SC WHERE子句。这里的WHERE子句的内容是（）。
+ A. S.S# = SC.S# and C.C# = SC.C# and SEX=’男’ and CNAME=’数据库’
+ B. S.S# = SC.S# and C.C# = SC.C# and SEX in ’男’and CNAME in ’数据库’
+ C. SEX ’男’ and CNAME ’ 数据库’
+ D. S.SEX=’男’ and CNAME=’ 数据库’
+
+答案: A
+------------------
+
+---------------
+为了存储客户的各种信息，按如下方式创建了表Customer：
+CREATE TABLE Customer (cCustomerId   char(4)     primary key,cCustomerName char(20)    not null,vAddress      varchar(40) null,cCity         char(20)    null,cState        char(20)    null,cPhone        char(10)    null)
+下列关于表Customer的叙述，正确的是 A、属性 cCustomerId 函数依赖于属性 cCustomerName, vAddress, cCity, cState和cPhone。B、属性 cCustomerName, vAddress, cCity, cState和cPhone 函数依赖于属性 cCustomerId。C、属
+性 cCustomerName 函数依赖于属性 cCustomerId, vAddress, cCity, cState和cPhone。D、属性 cCustomerId, vAddress, cCity, cState 和 cPhone 函数依赖于属性cCustomerName。
+答案: B
+------------------
+
+---------------
+AGE是表中的一个属性，则在SQL中，涉及空值的操作，不正确的是（        ）。
+
+A、 AGE IS NULL              B、  AGE IS NOT NULL  
+C、 AGE=NULL                 D、  NOT(AGE IS NULL)
+
+答案: C
+------------------
+
+---------------
+下列查询年龄最大的学生姓名的SQL语句，正确的是A. SELECT SNAME FROM STUDENT WHERE SAGE = MAX(SAGE)B. SELECT SNAME FROM STUDENT WHERE MAX(SAGE) = SAGEC. SELECT TOP 1 SAGE FROM STUDENT D. SELECT SNAME FROM STUDENT WHERE SAGE =(SELECT MAX(SAGE) FROM STUDENT)
+答案: D
+------------------
+
+---------------
+下列操作中进行实体完整性检查的是        A. INSERT        B. DELETE        C. UPDATE        D.UPDATE和INSERT
+答案: D
+------------------
+
+---------------
+DISTINCT子句的作用是
+       A. 去掉DISTINCT词后边列的重复值
+       B. 去掉某表中的重复行数据
+       C. 去掉查询结果中的重复行数据
+       D. 去掉一个列的数据
+
+答案: C
+------------------
+
+---------------
+已知SN是一个字符类型的字段，有查询语句：SELECT SN FROM S WHERE SN LIKE 'AB%'该查询语句的执行结果是A. 含有3个字符‘AB%’的所有SN字段B. 仅含有3个字符且前两个为‘AB’的SN字段C. 以字符串‘AB’开始的所有SN字段D. 含有 
+字符‘A’或‘B’的所有SN字段
+答案: C
+------------------
+
+---------------
+在某张表中，一个学生的成绩被输错了。可使用哪个语句来更正该学生的成绩 ()
+A、使用 INSERT 语句
+B、使用 UPDATE 语句
+C、使用DELETE语句删除该成绩再重新输入
+   D、使用SELECT语句更正成绩
+答案: B
+------------------
+
+---------------
+语句“SELECT * FROM Student WHERE sdept not in (’cs’,’is’）”的功能是        A.查询“cs”系和“is”系两个系的学生        B. 查询不是“cs”系但是“is”系的学生        C. 查询是“cs”系但不是“is”系的学生        D. 查询既
+不是“cs”系也不是“is”系的学生
+答案: D
+------------------
+
+---------------
+下列与“WHERE Grade between 60 and 100”子句等价的是A. WHERE Grade > 60 AND Grade < 100B. WHERE Grade >= 60 AND Grade <= 100C. WHERE Grade > 60 OR Grade < 100D. WHERE Grade >= 60 OR Grade <= 100
+答案: B
+------------------
+
+---------------
+一位图书商存储所有其卖出图书的信息。图书表的结构如下：Books（cBookId ，cBookName ，cBookCategory，cAuthorName ，iPages，iPrice)
+以书名的字母顺序升序显示书名及其价格。为此，出版商将使用下列哪个查询？（  ）
+
+A、SELECT * FROM Books ORDER BY cBookName ASC
+B、SELECT cBookName, iPrice FROM Books ORDER BY cBookName ASC
+C、SELECT * FROM Books ORDER BY cBookName DESC
+D、SELECT cBookName, iPrice FROM Books ORDER BY cBookName DESC
+
+答案: B
+------------------
+
+
+---------------
+设R和S为两个基本表，“FROM R RIGHT JOIN S ON R.某列=S.某列”表示A. 不要求R中的数据满足连接条件B. 不要求S中的数据满足连接条件C. 同时要求S和R中的数据均满足连接条件D. S和R中的数据均可不满足连接条件
+答案: B
+------------------
+
+

@@ -1,0 +1,137 @@
+
+(1 分) 2.han_prc_4003   创建一个存储过程prc_score，根据输入的学生的学号，显示该学生的姓名和学生的平均分
+
+创建一个存储过程prc_score，根据输入的学生的学号，显示该学生的姓名和该学生的平均分数。显示列名为：姓名，平均分数-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、
+年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+create proc prc_score
+@SNO char(10)
+as
+begin
+select sname as 姓名,AVG(GRADE) as 平均分数 from S,C,SC where S.SNO=SC.SNO
+and C.CNO=SC.CNO and SC.SNO=@SNO
+group by sname
+end     
+
+
+(1 分) 3.szw_pro_19001   根据班号查学生
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)创建一个存储过程getstu，班号作为输入参数，返回该班级学生的所有信息。      分数:  请勿频繁操作
+create proc getstu
+@classid char(6)
+as
+begin
+select * from 学生 where 班号=@classid
+end      
+
+
+(1 分) 4.han_prc_4001   创建一个存储过程prc_name，根据输入的学生的学号，显示学生的姓名、选修的课程名
+
+创建一个存储过程prc_name，根据输入的学生的学号，显示学生的姓名、选修的课程名-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+create proc prc_name
+@SNO char(10)
+as
+begin
+select SNAME,CNAME from S,C,SC where S.SNO=SC.SNO
+and C.CNO=SC.CNO and SC.SNO=@sno
+end     
+
+
+(1 分) 5.diao_prc_002   编写一存储过程，过程名称为prc_UpdateCredit,更新相关课程的学分信息
+
+ 编写一存储过程，过程名称为prc_UpdateCredit,更新相关课程的学分信息。学分信息存储在Course表的credit字段,为float类型。 要求如下：1. 查询每门课程在成绩表中的数据,如果该课程的最高成绩未达到90分,则将该课程的学分
+降低0.5；2. 该课程未被选择过，则不处理；-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid,credit)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频 
+繁操作
+create  proc prc_UpdateCredit
+  as
+  begin
+    declare @cno varchar(20)
+    declare @maxgrade int
+    --定义游标
+    declare mycursor cursor for select cid from course
+    --打开游标
+    open mycursor
+    --取值
+    fetch next from mycursor into @cno
+    --判断游标的状态
+    while (@@FETCH_STATUS=0)
+    begin
+       --业务操作
+       select @maxgrade=MAX(score) from sc where cid=@cno
+       if @maxgrade is null
+           set @maxgrade=0
+       if @maxgrade<1000
+       begin
+          update course
+          set credit=credit-0.5
+          where cid=@cno
+       end
+       fetch next from mycursor into @cno
+    end
+    --关闭
+    close mycursor
+    --释放
+    deallocate mycursor
+  end     
+
+
+(1 分) 6.han_prc_4002   创建一个存储过程prc_abc，根据输入的课号，显示选课学生的姓名、选修的课程名
+
+创建一个存储过程prc_abc，根据输入的课号，显示选课学生的姓名、选修的课程名-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+create proc prc_abc
+@CNO char(10)
+as
+begin
+select SNAME,CNAME from S,C,SC where S.SNO=SC.SNO
+and C.CNO=SC.CNO and SC.CNO=@CNO
+end
+
+
+(1 分) 1.diao_prc_001   创建一个存储过程prc_checkpassword,以帐号和密码作为参数，返回相关结果
+
+以下是一个用户表tuser列名数据类型长度uidvarchar20upwdvarchar40unamevarchar12创建一个存储过程prc_checkpassword,以帐号和密码作为参数，如果帐号不正确则输出-1，如果密码不正确则输出-2，帐号和密码都正确则输出0。 
+     分数:  请勿频繁操作
+create procedure  prc_checkpassword
+@username char(10),
+@password varchar(50)
+as
+begin
+    if not exists(select * from tuser where uid=@username)
+       select   '-1'
+            if not exists(select * from tuser
+where uid=@username and upwd=@password)
+    select   '-2'
+ select   '0'
+end     
+
+
+(1 分) 2.diao_prc_003    编写一存储过程，过程名称为prc_UpdateProv,更新相关同学的省份和成绩信息
+
+ 编写一存储过程，过程名称为prc_UpdateProv,更新相关同学的省份和成绩信息。学生的省份信息在student表中的prov字段,成绩在SC表总的score字段。 要求如下：1. 查询所有学生的信息，如果该学生有考试成绩为90以上(含90)， 
+则将该学生的省份前加上优秀标记；举例如果学生的省份为四川，则变成 优秀四川。并将该学生的成绩为90及以上的，统一设定为100；2. 如果该学生不满足条件，则不做任何变化；-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex,prov)学生表Course(Cid,Cname,Tid,credit)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+create  procedure  prc_UpdateProv
+  as
+  begin
+    declare @sno varchar(20)
+    declare @maxgrade int
+    declare cur_sno cursor for select sid from student
+    open cur_sno
+    fetch next from cur_sno into @sno
+    while (@@FETCH_STATUS=0)
+    begin
+       select @maxgrade=max(score ) from sc  where sid=@sno
+       if @maxgrade is null set @maxgrade=0
+       if @maxgrade>=90
+       begin
+            update student
+            set prov='优秀'+prov
+            where sid=@sno
+           update sc
+           set score=100
+          where sid=@sno and score>=90
+       end
+       fetch next from cur_sno into @sno
+    end
+    close cur_sno
+    deallocate cur_sno
+  end     

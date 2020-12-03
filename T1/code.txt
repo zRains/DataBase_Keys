@@ -1,0 +1,172 @@
+(1 分) 69.szw2020019   查询没有订单的购物者信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询没有订单的购物者信息，显示：购物者编号、姓名。      分数:  请勿频繁操作
+select 购物者编号,姓名 from 购物者 where 购物者编号 not in (select  购物者编号 from 订单)     
+
+
+(1 分) 70.szw2020021   将下列数据插入到商品表
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)写出SQL语句，
+将下列数据插入到商品表。商品编号商品名称价格106商品635      分数:  请勿频繁操作
+insert into 商品 values('106','商品6',35)     
+
+
+(1 分) 71.szw2020002   查询商品的信息，并添加一列显示8.5拆
+
+                                    一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商
+品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 
+varchar(50),价格 money)根据下列要求写出SQL语句：查询商品的信息，并添加一列显示8.5拆（原价*0.85)以后的价格，显示：商品编号、商品名称、价格、折扣价。      分数:  请勿频繁操作
+select 商品编号,商品名称,价格,价格*0.85 as 折扣价 from 商品     
+
+
+(1 分) 72.szw2020022   将商品编号为'103'的商品的价格修改为45。
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)写出SQL语句，
+将商品编号为'103'的商品的价格修改为45。      分数:  请勿频繁操作
+update 商品 set 价格=45 where 商品编号='103'     
+
+
+(1 分) 73.szw2020007   查询购物者所在城市为“成都”和“乐山”的购物者信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询购物者所在城市为“成都”和“乐山”的购物者信息，显示：购物者编号、姓名、城市。      分数:  请勿频繁操作
+select 购物者编号,姓名,城市 from 购物者  where 城市 in ('成都','乐山')
+     
+
+
+(1 分) 74.szw2020016   查询所有订单信息，将订单状态转换为中文显示
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：订单表中的订单状态取值为：1、2、3，含义如下：      1：等待出库 2：已发货  3：已完成查询所有订单信息，将订单状态转换为中文显示，显示：订单编号、订单状态。      分数:  请勿频繁操作
+select 订单编号,case when 订单状态='1' then '等待出库' when 订单状态='2' then '已发货' when 订单状态='3' then '已完成' end as 订单状态 from 订单     
+
+
+(1 分) 75.szw2020006   查询价格在30到40之间（含30和40)的商品信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询价格在30到40之间（含30和40)的商品信息，显示：商品编号、商品名称、价格。      分数:  请勿频繁操作
+select * from 商品 where 价格 between 30 and 40     
+
+
+(1 分) 76.szw2020014   查询每一个商品的订单数量（含没有订单的商品）
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询每一个商品的订单数量（含没有订单的商品）。显示：商品编号、商品名称、订单数量。      分数:  请勿频繁操作
+select 商品编号,商品名称,(select count(*) from 订单细节 where 商品编号=商品.商品编号) as 订单数量  from 商品
+     
+
+
+(1 分) 77.szw2020017   查询订单编号为“2020010001”的商品总金额
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询订单编号为“2020010001”的商品总金额（总金额=单价*数量)，显示：总金额。      分数:  请勿频繁操作
+select sum(价格*数量) as 总金额 from 订单细节 inner join 商品 on 订单细节.商品编号=商品.商品编号 where 订单编号='2020010001'     
+
+
+(1 分) 78.szw2020015   查询每一个购物者的订单数量
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询每一个购物者的订单数量，显示：购物者编号、姓名、订单数量。      分数:  请勿频繁操作
+select 购物者编号,姓名,(select count(*) from 订单 where 购物者编号=购物者.购物者编号) as 订单数量 from 购物者     
+
+
+(1 分) 79.szw2020001   查询价格大于30元的商品的信息
+
+1、 一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int)CREATE 
+TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime, 联系电话 varchar(50),省份 varchar(50),城市 varchar(50))CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求写
+出SQL语句。--1、查询价格大于30元的商品的信息，显示：商品编号、商品名称、价格，并按照价格降序排列。      分数:  请勿频繁操作
+select  *  from 商品 where 价格>30 order by 价格 desc     
+
+
+(1 分) 80.szw2020003    查询所有购物者的信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int)CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime, 联系电话 varchar(50),省份 varchar(50),城市 varchar(50))CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)  根据下列要求写出
+SQL语句：  查询所有购物者的信息，显示：购物者编号、姓名、出生日期、年龄。      分数:  请勿频繁操作
+select 购物者编号,姓名,出生日期,year(getdate())-year(出生日期) as 年龄
+from 购物者
+     
+
+
+(1 分) 81.szw2020008   查询所有姓“张”的购物者
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询所有姓“张”的购物者，显示：购物者编号、姓名。      分数:  请勿频繁操作
+select 购物者编号,姓名 from 购物者 where 姓名 like '张%'     
+
+
+(1 分) 82.szw2020023   删除商品编号为103的商品。
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)写出SQL语句，
+删除商品编号为103的商品。      分数:  请勿频繁操作
+delete from 商品 where 商品编号='103'     
+
+
+(1 分) 83.szw2020012   查询购物者中每个姓氏的人数，并按人数降序排列。
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询购物者中每个姓氏的人数，并按人数降序排列。显示：姓、人数。      分数:  请勿频繁操作
+select SUBSTRING(姓名,1,1) as 姓,count(*) as 人数 from 购物者
+group by substring(姓名,1,1)
+order by count(*) desc
+     
+
+
+(1 分) 84.szw2020011   查询每个城市的购物者人数，显示：省份、城市、人数。
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询每个城市的购物者人数，显示：省份、城市、人数。      分数:  请勿频繁操作
+select  省份,城市,count(*) as 人数 from 购物者 group by 省份,城市     
+
+
+(1 分) 85.szw2020010   查询每一个城市的购物者人数
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询每一个城市的购物者人数，显示：城市、人数。      分数:  请勿频繁操作
+select 城市,count(*) as 人数 from 购物者 group by 城市     
+
+
+(1 分) 86.szw2020020   查询购物者编号为“C001”的购物者购买的商品信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询购物者编号为“C001”的购物者购买的商品信息，显示：商品编号、商品名称、价格、总数量。每一个商品显示一行。      分数:  请勿频繁操作
+select 商品.商品编号,商品名称,价格,sum(数量) as 总数量 from 订单细节 inner join 商品
+on 商品.商品编号=订单细节.商品编号 inner join 订单 on 订单.订单编号=订单细节.订单编号 where 购物者编号='C001'  group by 商品.商品编号,商品名称,价格
+     
+
+
+(1 分) 87.szw2020018   查询没有订单的商品
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询没有订单的商品，显示：商品编号、商品名称、价格。      分数:  请勿频繁操作
+select 商品编号,商品名称,价格 from 商品 where 商品编号
+not in (select 商品编号 from 订单细节)
+     
+
+
+(1 分) 88.szw2020004   查询购物者所在的城市，去掉重复的城市
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询购物者所在的城市，去掉重复的城市，显示：城市。      分数:  请勿频繁操作
+select distinct 城市 from 购物者     
+
+
+(1 分) 89.szw2020005   查询商品价格最高的前3个玩具信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询商品价格最高的前3个玩具信息，显示：商品编号、商品名称、价格，按价格降序排列。      分数:  请勿频繁操作
+select top 3 * from 商品 order by 价格 desc     
+
+
+(1 分) 90.szw2020009   查询联系电话为null的购物者信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询联系电话为null的购物者信息，显示：购物者编号、姓名。      分数:  请勿频繁操作
+select 购物者编号,姓名 from 购物者 where 联系电话 is null     
+
+
+(1 分) 91.szw2020013   查询2020年10月的订单
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询2020年10月的订单，显示：订单编号、下单日期、姓名。      分数:  请勿频繁操作
+select 订单编号,下单日期,姓名 from 订单 inner join 购物者 on 购物者.购物者编号=订单.购物者编号 where   year(下单日期)=2020 and month(下单日期)=10
