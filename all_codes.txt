@@ -1,0 +1,1055 @@
+(1 分) 69.szw2020019   查询没有订单的购物者信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询没有订单的购物者信息，显示：购物者编号、姓名。      分数:  请勿频繁操作
+select 购物者编号,姓名 from 购物者 where 购物者编号 not in (select  购物者编号 from 订单)     
+
+
+(1 分) 70.szw2020021   将下列数据插入到商品表
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)写出SQL语句，
+将下列数据插入到商品表。商品编号商品名称价格106商品635      分数:  请勿频繁操作
+insert into 商品 values('106','商品6',35)     
+
+
+(1 分) 71.szw2020002   查询商品的信息，并添加一列显示8.5拆
+
+                                    一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商
+品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 
+varchar(50),价格 money)根据下列要求写出SQL语句：查询商品的信息，并添加一列显示8.5拆（原价*0.85)以后的价格，显示：商品编号、商品名称、价格、折扣价。      分数:  请勿频繁操作
+select 商品编号,商品名称,价格,价格*0.85 as 折扣价 from 商品     
+
+
+(1 分) 72.szw2020022   将商品编号为'103'的商品的价格修改为45。
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)写出SQL语句，
+将商品编号为'103'的商品的价格修改为45。      分数:  请勿频繁操作
+update 商品 set 价格=45 where 商品编号='103'     
+
+
+(1 分) 73.szw2020007   查询购物者所在城市为“成都”和“乐山”的购物者信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询购物者所在城市为“成都”和“乐山”的购物者信息，显示：购物者编号、姓名、城市。      分数:  请勿频繁操作
+select 购物者编号,姓名,城市 from 购物者  where 城市 in ('成都','乐山')
+     
+
+
+(1 分) 74.szw2020016   查询所有订单信息，将订单状态转换为中文显示
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：订单表中的订单状态取值为：1、2、3，含义如下：      1：等待出库 2：已发货  3：已完成查询所有订单信息，将订单状态转换为中文显示，显示：订单编号、订单状态。      分数:  请勿频繁操作
+select 订单编号,case when 订单状态='1' then '等待出库' when 订单状态='2' then '已发货' when 订单状态='3' then '已完成' end as 订单状态 from 订单     
+
+
+(1 分) 75.szw2020006   查询价格在30到40之间（含30和40)的商品信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询价格在30到40之间（含30和40)的商品信息，显示：商品编号、商品名称、价格。      分数:  请勿频繁操作
+select * from 商品 where 价格 between 30 and 40     
+
+
+(1 分) 76.szw2020014   查询每一个商品的订单数量（含没有订单的商品）
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询每一个商品的订单数量（含没有订单的商品）。显示：商品编号、商品名称、订单数量。      分数:  请勿频繁操作
+select 商品编号,商品名称,(select count(*) from 订单细节 where 商品编号=商品.商品编号) as 订单数量  from 商品
+     
+
+
+(1 分) 77.szw2020017   查询订单编号为“2020010001”的商品总金额
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询订单编号为“2020010001”的商品总金额（总金额=单价*数量)，显示：总金额。      分数:  请勿频繁操作
+select sum(价格*数量) as 总金额 from 订单细节 inner join 商品 on 订单细节.商品编号=商品.商品编号 where 订单编号='2020010001'     
+
+
+(1 分) 78.szw2020015   查询每一个购物者的订单数量
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询每一个购物者的订单数量，显示：购物者编号、姓名、订单数量。      分数:  请勿频繁操作
+select 购物者编号,姓名,(select count(*) from 订单 where 购物者编号=购物者.购物者编号) as 订单数量 from 购物者     
+
+
+(1 分) 79.szw2020001   查询价格大于30元的商品的信息
+
+1、 一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int)CREATE 
+TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime, 联系电话 varchar(50),省份 varchar(50),城市 varchar(50))CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求写
+出SQL语句。--1、查询价格大于30元的商品的信息，显示：商品编号、商品名称、价格，并按照价格降序排列。      分数:  请勿频繁操作
+select  *  from 商品 where 价格>30 order by 价格 desc     
+
+
+(1 分) 80.szw2020003    查询所有购物者的信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int)CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime, 联系电话 varchar(50),省份 varchar(50),城市 varchar(50))CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)  根据下列要求写出
+SQL语句：  查询所有购物者的信息，显示：购物者编号、姓名、出生日期、年龄。      分数:  请勿频繁操作
+select 购物者编号,姓名,出生日期,year(getdate())-year(出生日期) as 年龄
+from 购物者
+     
+
+
+(1 分) 81.szw2020008   查询所有姓“张”的购物者
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询所有姓“张”的购物者，显示：购物者编号、姓名。      分数:  请勿频繁操作
+select 购物者编号,姓名 from 购物者 where 姓名 like '张%'     
+
+
+(1 分) 82.szw2020023   删除商品编号为103的商品。
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)写出SQL语句，
+删除商品编号为103的商品。      分数:  请勿频繁操作
+delete from 商品 where 商品编号='103'     
+
+
+(1 分) 83.szw2020012   查询购物者中每个姓氏的人数，并按人数降序排列。
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询购物者中每个姓氏的人数，并按人数降序排列。显示：姓、人数。      分数:  请勿频繁操作
+select SUBSTRING(姓名,1,1) as 姓,count(*) as 人数 from 购物者
+group by substring(姓名,1,1)
+order by count(*) desc
+     
+
+
+(1 分) 84.szw2020011   查询每个城市的购物者人数，显示：省份、城市、人数。
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询每个城市的购物者人数，显示：省份、城市、人数。      分数:  请勿频繁操作
+select  省份,城市,count(*) as 人数 from 购物者 group by 省份,城市     
+
+
+(1 分) 85.szw2020010   查询每一个城市的购物者人数
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询每一个城市的购物者人数，显示：城市、人数。      分数:  请勿频繁操作
+select 城市,count(*) as 人数 from 购物者 group by 城市     
+
+
+(1 分) 86.szw2020020   查询购物者编号为“C001”的购物者购买的商品信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询购物者编号为“C001”的购物者购买的商品信息，显示：商品编号、商品名称、价格、总数量。每一个商品显示一行。      分数:  请勿频繁操作
+select 商品.商品编号,商品名称,价格,sum(数量) as 总数量 from 订单细节 inner join 商品
+on 商品.商品编号=订单细节.商品编号 inner join 订单 on 订单.订单编号=订单细节.订单编号 where 购物者编号='C001'  group by 商品.商品编号,商品名称,价格
+     
+
+
+(1 分) 87.szw2020018   查询没有订单的商品
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询没有订单的商品，显示：商品编号、商品名称、价格。      分数:  请勿频繁操作
+select 商品编号,商品名称,价格 from 商品 where 商品编号
+not in (select 商品编号 from 订单细节)
+     
+
+
+(1 分) 88.szw2020004   查询购物者所在的城市，去掉重复的城市
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询购物者所在的城市，去掉重复的城市，显示：城市。      分数:  请勿频繁操作
+select distinct 城市 from 购物者     
+
+
+(1 分) 89.szw2020005   查询商品价格最高的前3个玩具信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询商品价格最高的前3个玩具信息，显示：商品编号、商品名称、价格，按价格降序排列。      分数:  请勿频繁操作
+select top 3 * from 商品 order by 价格 desc     
+
+
+(1 分) 90.szw2020009   查询联系电话为null的购物者信息
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询联系电话为null的购物者信息，显示：购物者编号、姓名。      分数:  请勿频繁操作
+select 购物者编号,姓名 from 购物者 where 联系电话 is null     
+
+
+(1 分) 91.szw2020013   查询2020年10月的订单
+
+一个商品销售系统创建表的代码如下：CREATE TABLE 订单(订单编号 nchar(10),下单日期 datetime,购物者编号 nchar(10),订单状态 char(1))CREATE TABLE 订单细节(订单编号 nchar(10),商品编号 nchar(3),数量 int) CREATE TABLE 购物者(购物者编号 nchar(4),姓名 varchar(50),出生日期 datetime,    联系电话 varchar(50),省份 varchar(50),城市 varchar(50)) CREATE TABLE 商品(商品编号 nchar(3),商品名称 varchar(50),价格 money)根据下列要求 
+写出SQL语句：查询2020年10月的订单，显示：订单编号、下单日期、姓名。      分数:  请勿频繁操作
+select 订单编号,下单日期,姓名 from 订单 inner join 购物者 on 购物者.购物者编号=订单.购物者编号 where   year(下单日期)=2020 and month(下单日期)=10
+
+
+(1 分) 51.han_2007   更新SC表，把张三的成绩减2分
+
+更新SC表，把张三的成绩减2分-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名
+。选修表SC（CNO，SNO，GRADE），其属性分别表示课程号、学号、成绩。      分数:  请勿频繁操作
+update SC set GRADE =GRADE-2
+where SNO =(select SNO from S where SNAME ='张三')
+     
+
+
+(1 分) 52.han_2002   查询每个同学的平均分，平均分数高的显示在顶部。显示学号、姓名、平均分。
+
+查询每个同学的平均分，平均分数高的显示在顶部。显示中文列名：学号、姓名、平均分。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME 
+，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select S.SNO as 学号,SNAME as 姓名, AVG(grade) as 平均分
+from S inner join SC on S.SNO=SC.SNO
+group by S.SNO, SNAME
+order by AVG(grade) DESC     
+
+
+(1 分) 53.han_2012   查询同时选修了'1001'和'1003'的学生的信息，显示学生的学号、姓名、年龄、性别
+
+
+查询同时选修了'1001'和'1003'的学生的信息，显示中文列名:学号、姓名、年龄、性别。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，
+TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（CNO，SNO，GRADE），其属性分别表示课程号号、学号、成绩。      分数:  请勿频繁操作
+select SNO as 学号, Sname as 姓名, AGE as 年龄, SEX as 性别
+  from S where SNO in (select Sno from SC where CNO='1001')
+  and  SNO in (select Sno from SC where CNO='1003')     
+
+
+(1 分) 54.yexm19_0702063   编写SQL语句，将记录：学号是1022，曹实望，男，年龄是19，专业是信息安全的学生信息添加到表
+
+
+
+表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)编写SQL语句，将记录：学号是1022，曹实望，男，年龄是19，专业是信息安全的学生信息添加到表      分数:  请
+勿频繁操作
+insert into student (sno,sname,ssex,sage,sdept) values('1022','曹实望','男',19,'信息安全')      
+
+
+(1 分) 55.szw19007   查询课号为”2“的学生成绩
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询课号为”2“的学生成绩，并按成绩降序排列，显示：学号、姓名、成绩。      分数:  请勿频繁操作
+select 学生.学号,姓名,成绩 from 选修 inner join 学生 on 学生.学号=选修.学号 where 课号=2 order by 成绩 desc
+
+(1 分) 4.yexm19_0702082   将一个新学生记录（学号：09；姓名：陈冬；出生日期：1995-10-10；性别：男；）插入到Student表中；
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))将一个新学生记录（学号：09；姓名：陈冬；出生日期：1995-10-10；性别：男；）插入到Student表中；      分数:  请勿频繁操作
+INSERT INTO Student(s#,Sname,sage, ssex) 
+VALUES('09','陈冬','1995-10-10','男') ;
+     
+
+
+(1 分) 5.yexm19_0702083   新增一条选课记录，学号：08，课程号：01，成绩默认设置为0
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))新增一条选课记录，学号：08，课程号：01，成绩默认设置为0      分数:  请勿频繁操作
+INSERT INTO sc(s#,c#,score ) 
+VALUES('08','01',0)
+     
+
+
+(1 分) 6.diao_select_1009   向人员表中插入一条记录；
+
+向person表中插入一条记录;id:1000，name：马锦程,age:20,addr:成都信息工程大学。请编写sql语句来实现。-----表结构格式如下------------person(id,name,age,addr)CREATe TABLE person (  id int PRIMARY KEY,  name varchar(255),  age int,  addr varchar(255))      分数:  请勿频繁操作
+insert into person
+values(1000,'马锦程',20,'成都信息工程大学')
+go     
+
+
+
+
+(1 分) 5.yexm19_0702076   查询男生、女生人数
+
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询男生、女生人数        分数:  请勿频繁操作
+SELECT ssex,COUNT(ssex) FROM student GROUP BY ssex     
+
+
+(1 分) 6.diao_select_1003   查询名字中含有"风"字的学生信息
+
+查询名字中含有"风"字的学生所有信息-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作        
+SELECT Student.* FROM Student WHERE sname like '%风%'     
+
+
+(1 分) 7.yexm19_0702002   查找选修了课程名称为“计算机原理”的同学学号、姓名。
+
+表格式如下：班级（班级编号、班级名称、所属学院、年级、班级人数）学生（学号、姓名、性别、出生日期、籍贯、民族、班级编号）课程（课程号、课程名、学分、课时数、先修课程）学期（学期号、学期描述、备注）成绩（学号
+、课程号、学期号、成绩）查找选修了课程名称为“计算机原理”的同学学号、姓名。      分数:  请勿频繁操作
+ SELECT a.学号, 姓名
+    FROM 学生 a,课程 b,成绩 c
+    WHERE b.课程号=c.课程号
+          AND c.学号=a.学号
+          AND b.课程名='计算机原理'     
+
+
+(1 分) 8.yexm19_0702010   查询成绩80分以上的学生的姓名、课程号和成绩，并按成绩降序排列结果。
+
+查询成绩80分以上的学生的姓名、课程号和成绩，并按成绩降序排列结果。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+select sname,cno,grade
+from Student,SC
+where Student.sno = SC.sno and grade > 80
+order by grade desc     
+
+
+(1 分) 9.diao_select_2004   查询没学过“张三”老师课的同学的学号、姓名
+
+查询没学过“张三”老师课的同学的学号、姓名。 列名为中文。-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+select s.sid 学号,s.sname 姓名
+from Student as s
+where sid not in
+(select DISTINCT(s.sid)
+from Course as c,SC as s,Teacher as t
+where c.cid=s.cid AND c.tid=t.tid  AND t.tname='张三')
+     
+
+
+(1 分) 10.diao_select_1005   查询不及格的课程的课程号和成绩，并按课程号从大到小排列
+
+查询不及格的课程的课程号和成绩，并按课程号从大到小排列 。列名为 cid，score-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+SELECT cid,score
+FROM SC
+WHERE score<60
+ order by cid DESC     
+
+
+(1 分) 11.diao_查询测试   查询 person表中id号为1的人员所有信息
+
+查询 person表中id号为1的人员所有信息。person的表结构如下person(id,name,age,addr)请编写查询语句实现。      分数:  请勿频繁操作
+select * from person where  id = 1
+GO     
+
+
+(1 分) 12.szw19001   查询学生的籍贯
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)请编写SQL查询学生的籍贯，要求去掉重复值，显示“籍贯”      分数:  请勿频繁操作
+select distinct 籍贯 from 学生     
+
+
+(1 分) 13.yexm19_0702073   检索" 01 "课程分数小于 60，按分数降序排列的学生信息（学号，姓名，成绩）
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))检索" 01 "课程分数小于 60，按分数降序排列的学生信息（学号，姓名，成绩）      分数:  请勿频繁操作
+SELECT s#, sname, score FROM
+     student AS a
+        LEFT JOIN
+    (SELECT s# AS sno,c#,score FROM sc WHERE c#= 01 AND score <60 )b
+        ON a.s#= b.sno
+    WHERE score IS NOT NULL
+    ORDER BY score DESC
+     
+
+
+(1 分) 14.szw19005   查询每一个班级的学生人数
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询每一个班级的学生人数（没有学生的班级也要显示），显示：班号、班级名称、学生人数。结果按班号升序排列。      分数:  请勿频繁操作
+select 班号,班级名称,(select count(*) from 学生 where 班号=班级.班号) as 学生人数 from 班级 order by 班号     
+
+
+(1 分) 15.yexm19_0702004   在学生表中查询籍贯不是“四川”或“重庆”的同学姓名、籍贯和所属班级编号。
+
+表格式如下：班级（班级编号、班级名称、所属学院、年级、班级人数）学生（学号、姓名、性别、出生日期、籍贯、民族、班级编号）课程（课程号、课程名、学分、课时数、先修课程）学期（学期号、学期描述、备注）成绩（学号
+、课程号、学期号、成绩）在学生表中查询籍贯不是“四川”或“重庆”的同学姓名、籍贯和所属班级编号。      分数:  请勿频繁操作
+SELECT 姓名,籍贯, 班级编号
+   FROM 学生
+   WHERE 籍贯 NOT IN ('四川','重庆')
+     
+
+
+(1 分) 16.han_2004   查询每门课程的选课人数有多少，选课人数多的显示在顶部。显示课程号，课程名，选课人数。
+
+查询每门课程的选课人数有多少，选课人数多的显示在顶部。显示中文列名：课程号，课程名，选课人数。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表
+C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select SC.CNO as 课程号, CNAME as 课程名, COUNT(*) as 选课人数
+from C inner join SC on C.CNO=SC.CNO
+group by SC.CNO,CNAME
+order by  COUNT(*) desc     
+
+
+(1 分) 17.yexm19_0702062   查询所有与“吴亦凡”同龄的女生
+
+表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)编写SQL语句，查询所有与“吴亦凡”同龄的女生      分数:  请勿频繁操作
+select* from Student where sage=(select sage from student where sname='吴亦凡') and ssex='女'     
+
+
+(1 分) 18.han_2003   查询男生女生分别有多少人。显示，性别，人数。
+
+查询男生女生分别有多少人。显示中文列名：性别，人数。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课
+程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select SEX as 性别, COUNT(*) as 人数
+from S
+group by SEX     
+
+
+(1 分) 19.yexm19_0702060   编写SQL语句，查询学生表中姓张，名字为两个字的学生 
+
+编写SQL语句，查询学生表中姓张，名字为两个字的学生 表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+select * from student where sname like '张_'     
+
+
+(1 分) 20.han_2011   查询每门课程有多少人选，显示：课程号、课程名、选课人数
+
+查询每门课程有多少人选，显示中文列名：课程号、课程名、选课人数-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性
+分别表示课程号、课程名、上课教师名。选修表SC（CNO，SNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select C.CNO as 课程号, CNAME as 课程名, COUNT(*) as 选课人数 from C
+inner join SC on C.Cno=SC.Cno
+group by C.CNO, CNAME     
+
+
+(1 分) 21.han_2008   查询每个老师教了多少学生。显示的列名为：教师姓名、学生人数
+
+查询每个老师教了多少学生。显示的列名为：教师姓名、学生人数-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别
+表示课程号、课程名、上课教师名。选修表SC（CNO，SNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select teacher as 教师姓名, COUNT(*) as 学生人数 from C
+inner join SC on C.Cno=SC.Cno
+group by teacher     
+
+
+(1 分) 22.diao_select_2001   查询课程号01比课程号02成绩高的所有学生的学号，列名为sid；
+
+查询课程号01比课程号02成绩高的所有学生的学号，列名为sid；-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数
+:  请勿频繁操作
+select    a.sid
+from (select sid,score from SC where cid='01') a
+,(select sid,score from SC where cid='02')  b
+where a.score>b.score  and a.sid=b.sid     
+
+
+(1 分) 23.yexm19_0702065   查询同时选修了课程号：01 和 02 的学生的人数
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询同时选修了课程号：01 和 02 的学生的人数      分数:  请勿频繁操作
+SELECT count(distinct a.s#)
+FROM sc a,sc b
+WHERE a.c#='01' and b.c#='02' and a.s#=b.s#     
+
+
+(1 分) 24.yexm19_0702013   请使用子查询实现，查找选修过课程名中包含“系统”课程的同学学号、姓名。
+
+请使用子查询实现，查找选修过课程名中包含“系统”课程的同学学号、姓名。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表格式如下:Student(sno, 
+sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+SELECT sno,sname
+FROM Student
+WHERE sno IN ( SELECT sno FROM SC b, Course c WHERE b.cno=c.cno  AND c.cname LIKE '%系统%' )     
+
+
+(1 分) 25.diao_select_3001   查询学过编号为"01"并且也学过编号为"02"的课程的同学的信息
+
+查询学过编号为"01"并且也学过编号为"02"的课程的同学的所有信息。-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+select a.*
+from student a,sc b,sc c
+where a.sid = b.sid  and a.sid = c.sid
+and b.cid='01' and c.cid='02'     
+
+
+(1 分) 26.diao_select_2005   查询学过语文并且也学过数学课程的同学的学号、姓名；
+
+查询学过语文并且也学过数学课程的同学的学号、姓名；结果按照学生学号降序输出；列名为中文。-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+select a.sid 学号,a.sname 姓名 from
+(select s.sid,s.sname from Student as s,Course as c,SC as  sc where c.cname='数学' AND s.sid=sc.sid AND c.cid=sc.cid) a,
+(select s.sid,s.sname from Student as s,Course as c,SC as  sc where c.cname='语文' AND s.sid=sc.sid AND c.cid=sc.cid) b
+ WHERE a.sid=b.sid
+ order by a.sid desc     
+
+
+(1 分) 27.diao_select_2008   查询各科成绩最高分、最低分和平均分：以如下形式显示：课程ID，课程name，最高分，最低分，平均分。
+
+查询各科成绩最高分、最低分和平均分：以如下形式显示：课程号，课程名称，最高分，最低分，平均分。-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成 
+绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+SELECT a.cid 课程号
+       ,a.cname 课程名称
+       ,MAX(b.score) 最高分
+       ,MIN(b.score) 最低分
+       ,AVG(b.score) 平均分
+FROM Course a
+INNER JOIN SC b
+ON a.cid=b.cid
+GROUP BY a.cid,a.cname     
+
+
+(1 分) 28.yexm19_0702079   查询课程名称是数学，分数低于 60 的学生姓名和分数
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询课程名称为数学，分数低于 60 的学生姓名和分数      分数:  请勿频繁操作
+SELECT distinct a.sname, sc.score
+FROM student a,course b,sc
+WHERE cname = '数学' AND sc.score <60 and a.s#=sc.s# and b.c#=sc.c#     
+
+
+(1 分) 29.yexm19_0702078   查询 1990 年出生的学生名单
+
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询 1990 年出生的学生名单        分数:  请勿频繁操作
+SELECT * FROM student WHERE YEAR(sage) = 1990     
+
+
+(1 分) 30.diao_select_2006   查询学过“王五”老师所教的所有课的同学的学号、姓名；
+
+查询学过“王五”老师所教的所有课的同学的学号、姓名；返回列名信息为中文-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师 
+表      分数:  请勿频繁操作
+SELECT a.sid 学号,a.sname  姓名
+from (select s.sid,s.sname
+from Student as s,Course as c,SC as sc ,Teacher as t
+where t.tname='王五' AND s.sid=sc.sid AND
+c.cid=sc.cid AND c.tid=t.tid) a      
+
+
+(1 分) 31.yexm19_0702068   查询选修过课程的学生的姓名和出生年份
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))  查询选修过课程的学生的姓名和出生年份      分数:  请勿频繁操作
+SELECT sname  姓名, year(sage) 出生年份  FROM student WHERE s# IN (SELECT DISTINCT s# FROM sc)     
+
+
+(1 分) 32.diao_select_1001   查询姓“李”的老师的个数
+
+查询姓“李”的老师的个数,返回列名为 数量。-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作  
+select count(Teacher.tid) 数量
+from Teacher
+where Teacher.tname like '李%'      
+
+
+(1 分) 33.han_select_2001   查询张三同学没有选修的课程的课程号、课程名。要求显示的列名分别课程号、课程名。
+
+查询张三同学没有选修的课程的课程号、课程名。要求显示的列名分别课程号、课程名。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select   CNO as 课程号, CNAME as 课程名 from   C
+where   CNO  not in
+(select SC.CNO from  SC join S on SC.SNO=S.SNO where  SNAME='张三' )
+     
+
+
+(1 分) 34.yexm19_0702005   查询与Python在同一学期开设的课程的课程名和开课学期。
+
+表格式如下：学生(学号、姓名、性别.年龄、所属院系)课程(课程编号、课程名、课程学分、开课学期)学生课程(学号、课程号、成绩)。查询与Python在同一学期开设的课程的课程名和开课学期。      分数:  请勿频繁操作        
+select 课程名,开课学期
+from 课程
+where 开课学期 in( select 开课学期
+from 课程
+where 课程名= 'Python')     
+
+
+(1 分) 35.yexm19_0702077   查询学生名字中含有「雷」字的学生姓名
+
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询学生名字中含有「雷」字的学生姓名        分数:  请勿频繁操作
+SELECT sname  FROM student WHERE sname LIKE '%雷%'     
+
+
+(1 分) 36.szw19002   查询学生的学号、姓名、出生日期、年龄
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询学生的学号、姓名、出生日期、年龄，显示：学生、姓名、出生日期，年龄。（年龄需要计算）      分数:  请勿频繁操作
+select 学号,姓名,出生日期,year(getdate())-year(出生日期) as 年龄 from 学生
+     
+
+
+(1 分) 37.yexm19_0702072   查询没学过张小云老师讲授的任一门课程的学生姓名
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询没学过张小云老师讲授的任一门课程的学生姓名      分数:  请勿频繁操作
+SELECT sname FROM student WHERE s# NOT IN
+    (SELECT DISTINCT s# FROM sc WHERE c# IN
+        (SELECT c# FROM course WHERE t# IN
+            (SELECT t# FROM teacher WHERE tname = '张小云')))
+     
+
+
+(1 分) 38.szw19009   查询所有课程的平均成绩
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询所有课程的平均成绩，显示：课号，课程名称，平均成绩      分数:  请勿频繁操作
+select 课程.课号,课程名称,avg(成绩) as 平均成绩 from 课程 left outer join 选修
+on 选修.课号=课程.课号 group by 课程.课号,课程名称      
+
+
+(1 分) 39.yexm19_0702075   查询出只选修两门课程的学生学号和姓名
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询出只选修两门课程的学生学号和姓名       分数:  请勿频繁操作
+SELECT a.s#, a.sname  FROM
+student a
+LEFT JOIN
+(SELECT s#,COUNT(c#) AS cnt FROM sc GROUP BY s#) b
+ON a.s#=b.s#
+WHERE cnt=2
+     
+
+
+(1 分) 40.yexm19_0702016   在学生表中查询名字中不含有“凡”的同学学号和姓名。
+
+在学生表中查询名字中不含有“凡”的同学学号和姓名。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+SELECT sno, sname
+   FROM Student
+   WHERE sname NOT LIKE '%凡%'
+     
+
+
+(1 分) 41.yexm19_0702009   查询选修了’C02’课程的学生的姓名和所在系。
+
+查询选修了’C02’课程的学生的姓名和所在系。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+select sname ,sdept
+from Student,SC
+where Student.sno = SC.sno and SC.cno = 'c02'     
+
+
+(1 分) 42.han_2013   查询选修了'1001'没有选修'1003'的学生的信息，显示学生的学号、姓名、年龄、性别
+
+查询选修了课程号为'1001'的课程但没有选修课程号为'1003'的课程的学生信息，将列名转换为中文，显示：学号、姓名、年龄、性别。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学
+生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（CNO，SNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select SNO as 学号, Sname as 姓名, AGE as 年龄, SEX as 性别
+  from S where SNO in (select Sno from SC where CNO='1001')
+  and  SNO not in (select Sno from SC where CNO='1003')     
+
+
+(1 分) 43.diao_select_2003   查询平均成绩大于60分的同学的学号和平均成绩；
+
+查询平均成绩大于60分的同学的学号和平均成绩；输出列名称为学号和平均成绩;-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教
+师表      分数:  请勿频繁操作
+select sid as 学号 ,AVG(score)  as 平均成绩
+from SC
+group by sid
+having avg(score) > 60
+GO     
+
+
+(1 分) 44.yexm19_0702014   查询成绩最高分的学生的学号、课程号和相应成绩。
+
+查询成绩最高分的学生的学号、课程号和相应成绩。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+SELECT sno,cno,grade
+FROM SC
+WHERE grade=( SELECT max(grade)FROM SC )     
+
+
+(1 分) 45.yexm19_0702012   查找同时选修了编号为“001”和“002”课程的同学学号、姓名、课程号和相应成绩，并按学号排序输出。
+
+查找同时选修了编号为“001”和“002”课程的同学学号、姓名、课程号和相应成绩，并按学号排序输出。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表
+格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+SELECT a.sno,sname,b.cno,b.grade,c.cno,c.grade
+     FROM Student a,SC b, SC c
+     WHERE a.sno=b.sno
+           AND a.sno=c.sno
+           AND b.cno='001'
+           AND c.cno='002'
+     ORDER BY a.sno     
+
+
+(1 分) 46.szw19004   查询每一个学院的专业数量
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询每一个学院的专业数量，显示：学院编号、学院名称、专业数量。      分数:  请勿频繁操作
+select 学院编号,学院名称,(select count(*) from 专业 where 学院编号=学院.学院编号) as 专业数量 from 学院
+     
+
+
+(1 分) 47.yexm19_0702074   查询选修课程中，英语成绩位于前三的成绩
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询选修课程中，英语成绩位于前三的成绩      分数:  请勿频繁操作
+SELECT top 3 score
+FROM sc,course
+ where course.cname='英语' and sc.c#=course.c#
+ order by score desc
+
+     
+
+
+(1 分) 48.szw19003   查询每一个学生的成绩
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询每一个学生的成绩，显示学号、姓名、课程名称、成绩。      分数:  请勿频繁操作
+select 选修.学号,姓名,课程名称,成绩 from 选修 inner join 学生
+on 学生.学号=选修.学号 inner join 课程 on 课程.课号=选修.课号
+     
+
+
+(1 分) 49.diao_select_1006   查询每门课程被选修的学生数
+
+查询每门课程被选修的学生数,输出字段为中文名称，课程号，学生数;-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+SELECT sc.cid 课程号,count(sc.sid) 学生数
+from Course c,SC sc
+ WHERE c.cid=sc.cid GROUP BY sc.cid      
+
+
+(1 分) 50.yexm19_0702003   在课程表中查询有先修课程的课程信息。
+
+表格式如下：班级（班级编号、班级名称、所属学院、年级、班级人数）学生（学号、姓名、性别、出生日期、籍贯、民族、班级编号）课程（课程号、课程名、学分、课时数、先修课程）学期（学期号、学期描述、备注）成绩（学号
+、课程号、学期号、成绩）在课程表中查询有先修课程的课程信息。      分数:  请勿频繁操作
+select * from 课程
+where 先修课程 is not NULL     
+
+
+(1 分) 51.han_2010   查询每个老师讲的课程的平均分，显示：教师姓名、平均分
+
+查询每个老师讲的课程的平均分，显示中文列名：教师姓名、平均分。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性
+分别表示课程号、课程名、上课教师名。选修表SC（CNO，SNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select teacher as 教师姓名, AVG(GRADE) as 平均分 from C
+inner join SC on C.Cno=SC.Cno
+group by teacher     
+
+
+(1 分) 52.diao_select_1004   查询男生、女生人数
+
+按照性别查询男生、女生人数。(性别只有男、女,不考虑其他的)结果列名为性别，人数-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+SELECT  ssex 性别,COUNT(*) 人数
+FROM Student
+group by ssex     
+
+
+(1 分) 53.szw19010   查询只选修了1门课程的学生
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询只选修了1门课程的学生，显示学号、姓名、课程名称。      分数:  请勿频繁操作
+select 学生.学号,姓名,课程名称 from 学生 inner join 选修 on 选修.学号=学生.学号
+inner join 课程 on 课程.课号=选修.课号
+where 学生.学号 in (select 学号 from 选修 group by 学号 having count(*)=1)     
+
+
+(1 分) 54.yexm19_0702011   查询哪些学生没有选课，要求列出学号、姓名和所在系。
+
+查询哪些学生没有选课，要求列出学号、姓名和所在系。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+select sno,sname,sdept
+from Student
+where sno not in( select distinct sno from SC)     
+
+
+(1 分) 55.szw19008   查询“信安181”班每个同学的学分
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询“信安181”班每个同学的学分，显示：学号、姓名、总学分。（成绩及格的才能拿到学分）      分数:  请勿频繁操作
+select 学号,姓名,(select sum(学分) from 课程 where 课号 in (select 课号 from 选修 where 学号=学生.学号 and 成绩>=60) )总学分 from 学生 where 班号 in (select 班号 from 班级 where 班级名称='信安181')
+     
+
+
+(1 分) 56.yexm19_0702080   查询所有学生学号、姓名、课程号和分数情况
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询所有学生学号、姓名、课程号和分数情况，存在学生未选修课程的情况      分数:  请勿频繁操作
+SELECT a.s#,a.sname,b.c#,b.score FROM
+student a LEFT JOIN sc b ON a.s# = b.s#
+LEFT JOIN course c ON c.c# = b.c#
+     
+
+
+(1 分) 57.szw19006   查询学院名称为“网络空间安全学院”的学生信息
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)查询学院名称为“网络空间安全学院”的学生信息，显示：学号、姓名。      分数:  请勿频繁操作
+select 学号,姓名 from 学生 where 班号 in (select 班号 from 班级 where 专业编号 in (select 专业编号 from 专业 where 学院编号 in (select 学院编号 from 学院 where 学院名称='网络空间安全学院')))
+     
+
+
+(1 分) 58.yexm19_0702001   在学生表中查询“女”学生的学号、姓名、所属班级编号和出生日期，并按班级编号的升序、出生日期的月份降序排序输出。
+
+在学生表中查询“女”学生的学号、姓名、所属班级编号和出生日期，并按班级编号的升序、出生日期的月份降序排序输出。表格式如下：班级（班级编号、班级名称、所属学院、年级、班级人数）学生（学号、姓名、性别、出生日期、
+籍贯、民族、班级编号）课程（课程号、课程名、学分、课时数、先修课程）学期（学期号、学期描述、备注）成绩（学号、课程号、学期号、成绩）      分数:  请勿频繁操作
+SELECT 学号,姓名, 班级编号, 出生日期
+   FROM 学生
+   WHERE 性别='女'
+   ORDER BY 班级编号,month(出生日期) DESC     
+
+
+(1 分) 59.yexm19_0702006   查询软件工程系和计算机系的学生的姓名与性别。
+
+表格式如下：学生(学号、姓名、性别.年龄、所属院系)课程(课程编号、课程名、课程学分、开课学期)学生课程(学号、课程号、成绩)。查询软件工程系和计算机系的学生的姓名与性别。      分数:  请勿频繁操作
+SELECT 姓名,性别
+FROM 学生
+WHERE 所属院系 IN ('软件工程','计算机')
+     
+
+
+(1 分) 60.han_2009   查询学生平均成绩高于60分的同学的学号、姓名和平均成绩。
+
+查询学生平均成绩高于60分的学生信息，显示中文列名：学号、姓名、平均成绩。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（CNO，SNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select S.SNO as 学号, Sname as 姓名, AVG(grade) as 平均成绩 from S inner join SC
+on S.SNO=SC.SNO
+group by S.SNO, Sname
+having AVG(grade)>60     
+
+
+(1 分) 61.han_2005   查询每门课程的选课人数，即使课程没有人选，也要显示出来，按人数降序排列。显示课号、课程名、选课人数。
+
+查询每门课程的选课人数，即使课程没有人选，也要显示出来，按人数降序排列。显示中文列名：课程号、课程名、选课人数。-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、
+年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+select C.CNO as 课程号, CNAME as 课程名, COUNT(SC.CNO ) as 选课人数
+from C left join SC on C.CNO=SC.CNO
+group by C.CNO,CNAME
+order by  COUNT(SC.CNO) desc     
+
+
+(1 分) 62.yexm19_0702069   查询「王」姓老师的数量
+
+
+
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10)) 查询「王」姓老师的数量         分数:  请勿频繁操作
+SELECT COUNT(*) FROM teacher WHERE tname LIKE '王%'     
+
+
+(1 分) 63.diao_select_2002   查询所有同学的学号、姓名、选课数、总成绩
+
+查询所有同学的学号、姓名、选课数、总成绩 。返回列名统一为中文;-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+select Student.sid 学号,Student.sname 姓名,
+count(SC.cid) 选课数 ,sum(SC.score) 总成绩
+ from Student left join SC
+ on Student.sid=SC.sid
+group by Student.sid,sname;      
+
+
+(1 分) 64.yexm19_0702070   查询学过张明明老师讲授课程的学生的学号和姓名
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10)) 查询学过张明明老师讲授课程的学生的学号和姓名      分数:  请勿频繁操作
+SELECT s#,sname FROM student WHERE s# IN
+    (SELECT s# FROM sc WHERE c# =
+        (SELECT c# FROM course WHERE t# =
+            (SELECT t# FROM teacher WHERE tname='张明明')))
+     
+
+
+(1 分) 65.diao_select_2009   查询同名同性学生名单，并统计同名人数。
+
+查询同名同性学生名单，并统计同名人数,输出格式为 sname,ssex,数量。Create table Student(sid varchar(10),sname varchar(10),sage datetime,ssex nvarchar(10));Create table Course(cid varchar(10),cname varchar(10),tid varchar(10))Create table SC(sid varchar(10),cid varchar(10),score decimal(18,1))      分数:  请勿频繁操作
+SELECT sname,ssex,count(sname) 数量
+FROM Student GROUP BY sname,ssex
+HAVING count(sname)>1     
+
+
+(1 分) 66.diao_select_1007   查询所有课程成绩小于60分的同学的学号、姓名。
+
+查询所有课程成绩小于60分的同学的学号、姓名、成绩。列名称为中文 学号、姓名、成绩。-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+select s.sid 学号,s.sname 姓名,sc.score 成绩
+from Student as s,SC as sc
+where sc.score<60 AND sc.sid=s.sid      
+
+
+(1 分) 67.yexm19_0702061   编写SQL语句，查询学生表中所有学生，要求第一按照系别升序排序，第二按照学号降序排序
+
+编写SQL语句，查询学生表中所有学生，要求第一按照系别升序排序，第二按照学号降序排序表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁
+操作
+select * from student order by sdept asc,sno desc     
+
+
+(1 分) 68.yexm19_0702071   查询至少有一门课与学号为"01"的同学所学相同的同学的信息
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))查询至少有一门课与学号为"01"的同学所学相同的同学的信息      分数:  请勿频繁操作
+SELECT * FROM student WHERE s# IN
+    (SELECT DISTINCT s# FROM sc WHERE c# IN
+        (SELECT c# FROM sc WHERE s#=01))
+    AND s#!= 01
+     
+
+
+(1 分) 69.yexm19_0702059   编写SQL语句，查询学生表中男女生的人数各多少人 
+
+编写SQL语句，查询学生表中男女生的人数各多少人 表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)输出结果 ssex，人数      分数:  请勿频繁操作
+select ssex,count(*) 人数  from student group by ssex     
+
+
+(1 分) 70.diao_select_2007   查询学过编号为"01"但是没有学过编号为"02"的课程的同学的信息
+
+查询学过编号为"01"但是没有学过编号为"02"的课程的同学的信息。输出列名为中文，输出信息：学号，姓名。-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+select a.sid as 学号,a.sname  as 姓名
+from student a
+where a.sid in
+(select sid from sc where cid='01' )
+    and a.sid not in
+    (select sid from sc where cid='02')   
+
+
+(1 分) 1.yexm19_0702007   删除计算机系Python成绩不及格学生的Python选课记录。
+
+删除系别为“计算机”系Python成绩不及格学生的Python选课记录。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+delete from SC
+where sno in(select sno from Student where sdept='计算机')
+and cno in( select cno from Course where cname= 'Python')
+and grade< 60     
+
+
+(1 分) 2.yexm19_0702087   删除学习“张无忌”老师课的SC表记录
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))删除学习“张三”老师课的SC表记录      分数:  请勿频繁操作
+DELETE from sc where c# in
+(SELECT c# from course where t# in (select t# from teacher where tname='张无忌'))
+     
+
+
+(1 分) 3.yexm19_0702088   删除成绩不及格的SC表记录
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))删除成绩不及格的SC表记录      分数:  请勿频繁操作
+DELETE from sc where score<60     
+
+
+(1 分) 4.yexm19_0702086   删除所有男学生的选课记录。
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))删除所有男学生的选课记录。      分数:  请勿频繁操作
+DELETE FROM sc
+WHERE s# IN
+(SELECT s#
+FROM Student
+WHERE ssex='男')
+     
+
+
+(1 分) 5.yexm19_0702081   删除学生编号为“02”的课程编号为“01”的成绩
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))删除学生编号为“02”的课程编号为“01”的成绩      分数:  请勿频繁操作
+DELETE from sc where s#='02' and c#='01'  
+
+
+(1 分) 1.yexm19_0702008   将第三学期开设的所有课程的学分增加2分。
+
+将学期为“3”的所有课程的学分增加2分。学生表（学号，姓名，性别，年龄，系别）课程表（课程号，课程名，课程学分，开课学期）学生选课表（学号，课程号，成绩）表格式如下:Student(sno, sname, ssex, sage, sdept)Course(cno, cname, credit, semester)SC(sno, cno, grade)      分数:  请勿频繁操作
+update Course set credit = credit + 2
+where semester ='3'     
+
+
+(1 分) 2.yexm19_0702085   将所有女生的课程成绩加5分
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))将所有女生的课程成绩加5分；      分数:  请勿频繁操作
+UPDATE sc 
+SET score=score+ 5
+WHERE s# IN
+(SELECT s# 
+FROM Student 
+WHERE ssex='女');
+     
+
+
+(1 分) 3.han_2006   更新SC表，把'数据库原理及应用'课程的成绩加2分
+
+更新SC表，把'数据库原理及应用'课程的成绩加2分-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、 
+课程名、上课教师名。选修表SC（CNO，SNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+update SC set GRADE =GRADE+2
+where CNO =(select CNO from C where CNAME ='数据库原理及应用')     
+
+
+(1 分) 4.yexm19_0702084   创建SQL 语句，将编号为01课程的学生分数都提高10分
+
+创建表的语句如下：# 学生表(学生学号，学生姓名，学生出生日期，学生性别)create table student(s# varchar(10), sname varchar(10), sage datetime, ssex varchar(10))# 课程表(课程编号，课程名称，教师编号)create table course(c# varchar(10), cname varchar(10),t# varchar(10))# 教师表(教师编号，教师姓名)create table teacher(t# varchar(10), tname varchar(10))# 学生-课程表(学生学号，课程编号，学生分数)create table sc(s# varchar(10), c# varchar(10), score varchar(10))将编号为01课程的学生分数都加10分；      分数:  请勿频繁操作
+UPDATE sc
+SET score=score+10
+WHERE c# = '01'
+     
+
+
+(1 分) 5.diao_select_1002   将名字为 '邱志鹏'的地址信息设置为'成都信息工程大学'。
+
+将名字为 '邱志鹏'的地址信息设置为成都信息工程大学。请编写sql语句来实现。-----表结构格式如下------------person(id,name,age,addr)      分数:  请勿频繁操作
+update person set addr='成都信息工程大学' where name='邱志鹏'
+GO   
+
+
+
+
+(1 分) 2.han_prc_4003   创建一个存储过程prc_score，根据输入的学生的学号，显示该学生的姓名和学生的平均分
+
+创建一个存储过程prc_score，根据输入的学生的学号，显示该学生的姓名和该学生的平均分数。显示列名为：姓名，平均分数-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、
+年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+create proc prc_score
+@SNO char(10)
+as
+begin
+select sname as 姓名,AVG(GRADE) as 平均分数 from S,C,SC where S.SNO=SC.SNO
+and C.CNO=SC.CNO and SC.SNO=@SNO
+group by sname
+end     
+
+
+(1 分) 3.szw_pro_19001   根据班号查学生
+
+创建表的代码如下：CREATE TABLE 学院(学院编号 char(3),学院名称 varchar(100))CREATE TABLE 专业(专业编号  char(3),专业名称 varchar(100),学院编号 char(3))CREATE TABLE 班级(班号 char(6) ,班级名称 varchar(50),专 
+业编号 char(3))CREATE TABLE 学生(学号 char(10) ,姓名 varchar(50) ,性别 varchar(10) ,出生日期 datetime,    籍贯 varchar(50) ,班号 char(6))CREATE TABLE 课程(课号 char(4),课程名称 varchar(50),学分 float)CREATE TABLE 选修(学号 char(10),课号 char(4),成绩 int)创建一个存储过程getstu，班号作为输入参数，返回该班级学生的所有信息。      分数:  请勿频繁操作
+create proc getstu
+@classid char(6)
+as
+begin
+select * from 学生 where 班号=@classid
+end      
+
+
+(1 分) 4.han_prc_4001   创建一个存储过程prc_name，根据输入的学生的学号，显示学生的姓名、选修的课程名
+
+创建一个存储过程prc_name，根据输入的学生的学号，显示学生的姓名、选修的课程名-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+create proc prc_name
+@SNO char(10)
+as
+begin
+select SNAME,CNAME from S,C,SC where S.SNO=SC.SNO
+and C.CNO=SC.CNO and SC.SNO=@sno
+end     
+
+
+(1 分) 5.diao_prc_002   编写一存储过程，过程名称为prc_UpdateCredit,更新相关课程的学分信息
+
+ 编写一存储过程，过程名称为prc_UpdateCredit,更新相关课程的学分信息。学分信息存储在Course表的credit字段,为float类型。 要求如下：1. 查询每门课程在成绩表中的数据,如果该课程的最高成绩未达到90分,则将该课程的学分
+降低0.5；2. 该课程未被选择过，则不处理；-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex)学生表Course(Cid,Cname,Tid,credit)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频 
+繁操作
+create  proc prc_UpdateCredit
+  as
+  begin
+    declare @cno varchar(20)
+    declare @maxgrade int
+    --定义游标
+    declare mycursor cursor for select cid from course
+    --打开游标
+    open mycursor
+    --取值
+    fetch next from mycursor into @cno
+    --判断游标的状态
+    while (@@FETCH_STATUS=0)
+    begin
+       --业务操作
+       select @maxgrade=MAX(score) from sc where cid=@cno
+       if @maxgrade is null
+           set @maxgrade=0
+       if @maxgrade<1000
+       begin
+          update course
+          set credit=credit-0.5
+          where cid=@cno
+       end
+       fetch next from mycursor into @cno
+    end
+    --关闭
+    close mycursor
+    --释放
+    deallocate mycursor
+  end     
+
+
+(1 分) 6.han_prc_4002   创建一个存储过程prc_abc，根据输入的课号，显示选课学生的姓名、选修的课程名
+
+创建一个存储过程prc_abc，根据输入的课号，显示选课学生的姓名、选修的课程名-----表结构格式如下------------学生表S（SNO，SNAME，AGE，SEX），其属性分别表示学号、学生姓名、年龄、性别。课程表C（CNO，CNAME，TEACHER），其属性分别表示课程号、课程名、上课教师名。选修表SC（SNO，CNO，GRADE），其属性分别表示学号、课程号、成绩。      分数:  请勿频繁操作
+create proc prc_abc
+@CNO char(10)
+as
+begin
+select SNAME,CNAME from S,C,SC where S.SNO=SC.SNO
+and C.CNO=SC.CNO and SC.CNO=@CNO
+end
+
+
+(1 分) 1.diao_prc_001   创建一个存储过程prc_checkpassword,以帐号和密码作为参数，返回相关结果
+
+以下是一个用户表tuser列名数据类型长度uidvarchar20upwdvarchar40unamevarchar12创建一个存储过程prc_checkpassword,以帐号和密码作为参数，如果帐号不正确则输出-1，如果密码不正确则输出-2，帐号和密码都正确则输出0。 
+     分数:  请勿频繁操作
+create procedure  prc_checkpassword
+@username char(10),
+@password varchar(50)
+as
+begin
+    if not exists(select * from tuser where uid=@username)
+       select   '-1'
+            if not exists(select * from tuser
+where uid=@username and upwd=@password)
+    select   '-2'
+ select   '0'
+end     
+
+
+(1 分) 2.diao_prc_003    编写一存储过程，过程名称为prc_UpdateProv,更新相关同学的省份和成绩信息
+
+ 编写一存储过程，过程名称为prc_UpdateProv,更新相关同学的省份和成绩信息。学生的省份信息在student表中的prov字段,成绩在SC表总的score字段。 要求如下：1. 查询所有学生的信息，如果该学生有考试成绩为90以上(含90)， 
+则将该学生的省份前加上优秀标记；举例如果学生的省份为四川，则变成 优秀四川。并将该学生的成绩为90及以上的，统一设定为100；2. 如果该学生不满足条件，则不做任何变化；-----表结构格式如下------------Student(Sid,Sname,Sage,Ssex,prov)学生表Course(Cid,Cname,Tid,credit)课程表SC(Sid,Cid,score)成绩表Teacher(Tid,Tname)教师表      分数:  请勿频繁操作
+create  procedure  prc_UpdateProv
+  as
+  begin
+    declare @sno varchar(20)
+    declare @maxgrade int
+    declare cur_sno cursor for select sid from student
+    open cur_sno
+    fetch next from cur_sno into @sno
+    while (@@FETCH_STATUS=0)
+    begin
+       select @maxgrade=max(score ) from sc  where sid=@sno
+       if @maxgrade is null set @maxgrade=0
+       if @maxgrade>=90
+       begin
+            update student
+            set prov='优秀'+prov
+            where sid=@sno
+           update sc
+           set score=100
+          where sid=@sno and score>=90
+       end
+       fetch next from cur_sno into @sno
+    end
+    close cur_sno
+    deallocate cur_sno
+  end     
